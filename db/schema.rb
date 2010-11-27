@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101127213954) do
+ActiveRecord::Schema.define(:version => 20101127234638) do
 
   create_table "snippets", :force => true do |t|
     t.string   "title"
@@ -33,5 +33,7 @@ ActiveRecord::Schema.define(:version => 20101127213954) do
     t.datetime "updated_at"
     t.integer  "snippet_id"
   end
+
+  add_index "tags", ["name"], :name => "index_tags_on_name"
 
 end
