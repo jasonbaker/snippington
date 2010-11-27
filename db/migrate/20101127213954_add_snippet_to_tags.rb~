@@ -1,0 +1,9 @@
+class AddSnippetToTags < ActiveRecord::Migration
+  def self.up
+    add_column :tags, :snippet, :references
+  end
+
+  def self.down
+    remove_column :tags, :snippet
+  end
+end
