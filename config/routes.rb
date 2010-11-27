@@ -1,5 +1,5 @@
 Snippington::Application.routes.draw do
-  resources :snippets
+  resources :snippets, :tags
 
   get "home/index"
   root :to => "home#index"
