@@ -1,7 +1,10 @@
 require 'set'
 
 class Snippet < ActiveRecord::Base
+  @@title_re = /[a-zA-Z0-9\-_].*/
+
   validates :code, :presence => true
+  validates_format_of :title, :with => @@title_re, :message => "Must match #{@@title_re.inspect}"
   validates :title, :presence => true
   validates :comment, :presence => true
 
