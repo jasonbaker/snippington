@@ -10,9 +10,10 @@
 
     <% @snippets.each do |snippet| %>
     <h2><%= snippet.title %></h2>
-    <time><%= snippet.created_at %></time>
+    <p style="margin-bottom: 5px;"><small><%= snippet.tags_string %></small></p>
     <p><%= snippet.comment %></p>
     <code class="prettyprint"><%= snippet.code %></code>
+    <p style="margin-bottom: 0px; margin-top: 3px;"><small>Created <%= distance_of_time_in_words(snippet.created_at, Time.now) %> ago</small></p>
     <hr/>
     <% end %>
   </div>
