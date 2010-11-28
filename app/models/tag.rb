@@ -1,4 +1,4 @@
 class Tag < ActiveRecord::Base
-  belongs_to :tag_categories
-  belongs_to :snippets
+  has_many :tag_snippets
+  has_many :snippets, :through => :tag_snippets
 end

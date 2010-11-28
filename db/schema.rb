@@ -10,28 +10,26 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101127234638) do
+ActiveRecord::Schema.define(:version => 20101128224534) do
 
   create_table "snippets", :force => true do |t|
     t.string   "title"
-    t.string   "comment"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "code"
   end
 
-  create_table "tag_categories", :force => true do |t|
-    t.string   "name"
+  create_table "tag_snippets", :force => true do |t|
+    t.integer  "tag_id"
+    t.integer  "snippet_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "tags", :force => true do |t|
     t.string   "name"
-    t.integer  "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "snippet_id"
   end
 
   add_index "tags", ["name"], :name => "index_tags_on_name"

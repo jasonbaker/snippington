@@ -6,9 +6,9 @@ class Snippet < ActiveRecord::Base
   validates :code, :presence => true
   validates_format_of :title, :with => @@title_re, :message => "Must match #{@@title_re.inspect}"
   validates :title, :presence => true
-  validates :comment, :presence => true
 
-  has_many :tags
+  has_many :tag_snippets
+  has_many :tags, :through => :tag_snippets
 
   def tags_list
     tags.collect {|tag| tag.name}
