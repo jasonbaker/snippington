@@ -15,6 +15,10 @@ class Snippet < ActiveRecord::Base
     (tags_list).join(" ")
   end
 
+  def tags_set
+    (tags_list).to_set
+  end
+
   def tags_string=(new_str)
     tag_set = (tags_list).to_set
     input_tags = new_str.split(/\s/)

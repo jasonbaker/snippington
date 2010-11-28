@@ -1,27 +1,19 @@
-<h1>Listing snippets</h1>
+<div class="container">
+  <div id="header">
+    <h1>Snippington</h1>
+    <p><span class="postbox">
+      <%= link_to 'New snippet', new_snippet_path %>
+    </span></p>
+  </div>
+  <br/>
+  <div class="codebox">
 
-<table>
-  <tr>
-    <th>Code</th>
-    <th>Title</th>
-    <th>Comment</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @snippets.each do |snippet| %>
-  <tr>
-    <td><%= snippet.code %></td>
-    <td><%= snippet.title %></td>
-    <td><%= snippet.comment %></td>
-    <td><%= link_to 'Show', snippet %></td>
-    <td><%= link_to 'Edit', edit_snippet_path(snippet) %></td>
-    <td><%= link_to 'Destroy', snippet, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Snippet', new_snippet_path %>
+    <% @snippets.each do |snippet| %>
+    <h2><%= snippet.title %></h2>
+    <time><%= snippet.created_at %></time>
+    <p><%= snippet.comment %></p>
+    <code class="prettyprint"><%= snippet.code %></code>
+    <hr/>
+    <% end %>
+  </div>
+</div>

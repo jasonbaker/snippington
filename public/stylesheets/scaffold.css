@@ -1,9 +1,49 @@
-body { background-color: #fff; color: #333; }
+body { background-color: #1C232E; color: #333; }
 
 body, p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size:   13px;
   line-height: 18px;
+}
+
+code {
+  font-family:  monospace;
+}
+
+.codebox {
+  background-color:  #D9D7AD;
+}
+
+.codebox hr {
+    margin-bottom:  9px;
+    margin-top:  9px;
+}
+
+#header {
+  background-color:  #91A685;
+  padding-bottom:  0.25em;
+}
+
+h2 {
+  font-size: 15px;
+  margin-bottom:  0px;
+}
+
+.postbox{
+  border-radius:  5px;
+  background-color:  #FF6A00;
+  padding:  1ex;
+  decoration:  none;
+  margin-top: 1em;
+}
+
+.postbox a{font-size:  14px;}
+.postbox A:active{text-decoration: none;}
+.postbox A:link{text-decoration: none;}
+
+time {
+  font-size: 11px;
+  margin-bottom:  45px;
 }
 
 pre {
