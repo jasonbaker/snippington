@@ -9,12 +9,24 @@
     <%= csrf_meta_tag %>
   </head>
   <body onload="prettyPrint()">
-  <div id="header">
-    <h1><a href="/">Snippington</a></h1>
-    <p><span class="postbox">
-      <%= link_to 'New snippet', new_snippet_path %>
-    </span></p>
-  </div>
+    <div id="header">
+      <h1><a href="/">Snippington</a></h1>
+      <p><span class="postbox">
+          <%= link_to 'New snippet', new_snippet_path %>
+      </span></p>
+      <div id='userland'>
+        <% if current_user %>
+        Welcome <%= current_user.email %>!
+
+        <%= link_to "My Account", user_path(current_user) %>
+        <%= link_separator %>
+        <%= link_to "Logout", user_session_path, :method => :delete %>
+        <% else %>
+        You are not currently 
+        <%= link_to "logged in", new_user_session_path %>.
+        <% end %>
+      </div>
+    </div>
     <%= yield %>
 
   </body>
