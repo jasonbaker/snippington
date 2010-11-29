@@ -39,9 +39,13 @@
     <div id="header">
       <h1><a href="/">Snippington</a></h1>
       <p>
-          <%= link_to 'New snippet', new_snippet_path, :class => "header-button" %>
           <% unless user_signed_in? %>
           <button id="login">log in</button>
+          <% end %>
+
+          <% if user_signed_in? %>
+          <%= link_to 'New snippet', new_snippet_path, :class => "header-button" %>
+          <%= link_to('log out', destroy_user_session_path, :class => "header-button") %>
           <% end %>
       </p>
     </div>
@@ -52,7 +56,6 @@
       <%= f.text_field :email %>
       <%= label_tag(:password, "Password") %>
       <%= f.password_field :password %>
-      <%= f.submit 'Sign in' %>
       <% end %> 
     </div>
     <% end %>
