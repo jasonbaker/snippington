@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101128224534) do
+ActiveRecord::Schema.define(:version => 20101129041216) do
 
   create_table "snippets", :force => true do |t|
     t.string   "title"
@@ -25,6 +25,9 @@ ActiveRecord::Schema.define(:version => 20101128224534) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "tag_snippets", ["snippet_id"], :name => "index_tag_snippets_on_snippet_id"
+  add_index "tag_snippets", ["tag_id"], :name => "index_tag_snippets_on_tag_id"
 
   create_table "tags", :force => true do |t|
     t.string   "name"
