@@ -27,8 +27,7 @@ class Snippet < ActiveRecord::Base
     input_tags = new_str.split(/\s/)
     input_tags.each do |tag|
       unless tag_set.include?(tag)
-        db_record = Tag.new(:name => tag)
-        db_record.save
+        db_record = Tag.find_or_create_by_name(tag)
         tags.push(db_record)
       end
     end

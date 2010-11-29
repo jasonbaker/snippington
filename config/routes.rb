@@ -1,8 +1,10 @@
 Snippington::Application.routes.draw do
-  resources :snippets, :tags
+  resources :snippets
+
+  resources :tags
 
   get "home/index"
-  root :to => "home#index"
+  root :to => "snippets#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

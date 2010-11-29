@@ -2,8 +2,6 @@ class TagsController < ApplicationController
   # GET /tags
   # GET /tags.xml
   def index
-    @tags = Tag.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @tags }
@@ -14,9 +12,16 @@ class TagsController < ApplicationController
   # GET /tags/1.xml
   def show
     @tag = Tag.find(params[:id])
+    @tags = Tag.all
+    if (params.include? :id)
+      @snippets = Snippet.joins(:tags).where(:tags => {:id => params[:id]})
+    else
+      @snippets = Snippet.all
+    end
+
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html {render :template => "snippets/index"}
       format.xml  { render :xml => @tag }
     end
   end

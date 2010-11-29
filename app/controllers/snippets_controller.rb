@@ -2,7 +2,12 @@ class SnippetsController < ApplicationController
   # GET /snippets
   # GET /snippets.xml
   def index
-    @snippets = Snippet.all
+    if (params.include? :tag_id)
+      @snippets = Snippet.joins(:tags).where(:tags => {:id => params[:tag_id]})
+    else
+      @snippets = Snippet.limit(20)
+    end
+    @tags = Tag.limit(10)
 
     respond_to do |format|
       format.html # index.html.erb

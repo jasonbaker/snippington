@@ -9,7 +9,12 @@
     <%= csrf_meta_tag %>
   </head>
   <body onload="prettyPrint()">
-
+  <div id="header">
+    <h1><a href="/">Snippington</a></h1>
+    <p><span class="postbox">
+      <%= link_to 'New snippet', new_snippet_path %>
+    </span></p>
+  </div>
     <%= yield %>
 
   </body>
