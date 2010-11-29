@@ -44,6 +44,10 @@ code {
   padding-bottom:  0.25em;
 }
 
+#header .header-button {
+  color:  white;
+}
+
 h2 {
   font-size: 15px;
   margin-bottom:  0px;
