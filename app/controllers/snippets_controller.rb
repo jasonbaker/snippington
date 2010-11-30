@@ -7,6 +7,7 @@ class SnippetsController < ApplicationController
     else
       @snippets = Snippet.limit(20)
     end
+    @snippets = @snippets.order("created_at DESC")
     @tags = Tag.limit(10)
 
     respond_to do |format|
@@ -46,10 +47,11 @@ class SnippetsController < ApplicationController
   # POST /snippets.xml
   def create
     @snippet = Snippet.new(params[:snippet])
+    @snippet.user = current_user
 
     respond_to do |format|
       if @snippet.save
-        format.html { redirect_to(@snippet, :notice => 'Snippet was successfully created.') }
+        format.html { redirect_to(:snippets, :notice => 'Snippet was successfully created.') }
         format.xml  { render :xml => @snippet, :status => :created, :location => @snippet }
       else
         format.html { render :action => "new" }
