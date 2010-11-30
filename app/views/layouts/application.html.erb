@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Snippington</title>
-    <%= stylesheet_link_tag "blueprint/reset.css", "blueprint/screen.css", "blueprint/src/typography.css", "blueprint/src/forms.css" %>
+    <%= stylesheet_link_tag "blueprint/src/reset.css", "blueprint/screen.css", "blueprint/src/typography.css", "blueprint/src/forms.css" %>
     <%= stylesheet_link_tag "blueprint/print.css", :media => "print" %>
     <%= stylesheet_link_tag :all %>
     <%= javascript_include_tag :defaults, "prettify.js" %>
@@ -23,12 +23,18 @@
             submit:  function(){
               $('#login-form').submit();
             }
-          }
-        })
+          },
+          open:  function() {
+           $('#login-dialog').keyup(function(e) {
+             if (e.keyCode == 13) {
+               $('#login-form').submit();
+             }
+          })}
+        });
 
         $("#login").button().click(function(){
           $("#login-dialog").dialog("open");
-        });    
+        })
     <% end %>
         $("#header .header-button").button();
 
@@ -41,6 +47,7 @@
       <p>
           <% unless user_signed_in? %>
           <button id="login">log in</button>
+          <%= link_to('register', new_user_registration_path, :class => "header-button")  %>
           <% end %>
 
           <% if user_signed_in? %>
@@ -52,10 +59,11 @@
     <% unless user_signed_in? %>
     <div id="login-dialog">
       <%= form_for("user", :url => user_session_path, :html => {:id => "login-form"}) do |f| %>
-      <%= label_tag(:email, "Email") %>
-      <%= f.text_field :email %>
-      <%= label_tag(:password, "Password") %>
+      <%= label_tag(:username, "username") %>
+      <%= f.text_field :username%>
+      <%= label_tag(:password, "password") %>
       <%= f.password_field :password %>
+      <%= f.check_box :remember_me, :checked => true, :value => "1"%> <%= f.label :remember_me %>
       <% end %> 
     </div>
     <% end %>

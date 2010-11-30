@@ -1,6 +1,5 @@
 <div class="codebox span-21">
   <% @snippets.each do |snippet| %>
-  <h2><%= snippet.title %></h2>
   <p style="margin-bottom: 5px;"><small>Tags:  <%= render :collection => snippet.tags, :partial => "tags/taglink" %></small></p>
   <code class="prettyprint"><%= snippet.code %></code>
   <p style="margin-bottom: 0px; margin-top: 3px;"><small>Created <%= distance_of_time_in_words(snippet.created_at, Time.now) %> ago</small></p>
