@@ -53,6 +53,7 @@ GEM
       i18n (~> 0.4.1)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    memcache-client (1.8.5)
     mime-types (1.16)
     polyglot (0.3.1)
     rack (1.2.1)
@@ -90,6 +91,7 @@ DEPENDENCIES
   dalli
   devise
   jquery-rails
+  memcache-client
   rails (= 3.0.3)
   sqlite3-ruby
   typus!
