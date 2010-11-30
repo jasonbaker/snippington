@@ -18,7 +18,7 @@ class TagsController < ApplicationController
     else
       @snippets = Snippet.all
     end
-
+    @snippets = @snippets.order("created_at DESC")
 
     respond_to do |format|
       format.html {render :template => "snippets/index"}
