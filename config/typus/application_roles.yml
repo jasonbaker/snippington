@@ -1,0 +1,9 @@
+# Typus Roles Configuration File
+#
+# Use the README file as a reference to customize settings.
+
+admin:
+  Snippet: create, read, update, delete
+  Tag: create, read, update, delete
+  TagSnippet: create, read, update, delete
+  User: create, read, update, delete

@@ -1,0 +1,44 @@
+# Typus Models Configuration File
+#
+# Use the README file as a reference to customize settings.
+
+Snippet:
+  fields:
+    default: user_id
+    form: code, user_id
+  order_by: 
+  relationships: tag_snippets, tags
+  filters: 
+  search: 
+  application: snippington
+
+Tag:
+  fields:
+    default: name
+    form: name
+  order_by: 
+  relationships: snippets, tag_snippets
+  filters: 
+  search: name
+  application: snippington
+
+TagSnippet:
+  fields:
+    default: tag_id, snippet_id, tag, snippet
+    form: tag_id, snippet_id, tag, snippet
+  order_by: 
+  relationships: snippet, tag
+  filters: 
+  search: 
+  application: snippington
+
+User:
+  fields:
+    default: email, remember_token, sign_in_count, current_sign_in_at, last_sign_in_at, current_sign_in_ip, last_sign_in_ip, username
+    form: email, reset_password_token, remember_token, sign_in_count, current_sign_in_at, last_sign_in_at, current_sign_in_ip, last_sign_in_ip, username
+  order_by: 
+  relationships: 
+  filters: 
+  search: 
+  application: snippington
+

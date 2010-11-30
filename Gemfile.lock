@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/fesplugas/typus.git
+  revision: 0adeac02aa5a3906dd51d98a8d16c8f4543e9770
+  specs:
+    typus (3.0.3)
+      will_paginate (~> 3.0.pre2)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -73,6 +80,7 @@ GEM
     tzinfo (0.3.23)
     warden (1.0.2)
       rack (>= 1.0.0)
+    will_paginate (3.0.pre2)
 
 PLATFORMS
   ruby
@@ -82,3 +90,4 @@ DEPENDENCIES
   jquery-rails
   rails (= 3.0.3)
   sqlite3-ruby
+  typus!
