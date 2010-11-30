@@ -9,6 +9,7 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'jquery-rails'
 gem 'devise'
 gem 'typus', :git => 'https://github.com/fesplugas/typus.git'
+gem 'dalli'
 
 # Use unicorn as the web server
 # gem 'unicorn'
