@@ -37,7 +37,18 @@
         })
     <% end %>
         $("#header .header-button").button();
+      
+        <% if notice %>
+        setTimeout(function(){
+          $(".notice").hide("blind")
+        }, 3000);
+        <% end %>
 
+        <% if alert %>
+        setTimeout(function(){
+          $(".alert").hide("blind")
+        }, 3000);
+        <% end %>
       });
     </script>
   </head>
