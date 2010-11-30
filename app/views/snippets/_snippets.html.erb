@@ -1,8 +1,14 @@
 <div class="codebox span-21">
   <% @snippets.each do |snippet| %>
-  <p style="margin-bottom: 5px;"><small>Tags:  <%= render :collection => snippet.tags, :partial => "tags/taglink" %></small></p>
-  <pre class="prettyprint"><%= sanitize snippet.code %></pre>
-  <p style="margin-bottom: 0px; margin-top: 3px;"><small>Created <%= distance_of_time_in_words(snippet.created_at, Time.now) %> ago by <%= snippet.user.username %></small></p>
+  <div class="container">
+    <div class="span-1">
+      <p style="margin-bottom: 0px; margin-top: 3px;"><%= image_tag snippet.user.gravatar_url(:default => "wavatar", :size => 40) %> </p>
+    </div>
+    <div class="span-22 prepend-1 last">
+      <p style="margin-bottom: 0px;"><small>Tags:  <%= render :collection => snippet.tags, :partial => "tags/taglink" %></small></p>
+      <p><small>Created <%= distance_of_time_in_words(snippet.created_at, Time.now) %> ago by <%= snippet.user.username %></small></p>
+    </div>
+  </div>  <pre class="prettyprint"><%= sanitize snippet.code %></pre>
   <hr/>
   <% end %>
 </div>

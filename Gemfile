@@ -11,6 +11,7 @@ gem 'devise'
 gem 'typus', :git => 'https://github.com/fesplugas/typus.git'
 gem 'dalli'
 gem 'memcache-client'
+gem 'gravtastic'
 
 # Use unicorn as the web server
 # gem 'unicorn'
