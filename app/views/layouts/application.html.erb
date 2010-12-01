@@ -6,9 +6,6 @@
     <%= stylesheet_link_tag "blueprint/src/reset.css", "blueprint/screen.css", "blueprint/src/typography.css", "blueprint/src/forms.css" %>
     <%= stylesheet_link_tag "blueprint/print.css", :media => "print" %>
     <%= stylesheet_link_tag :all %>
-    <%= head_js_include "prettify", "rails" %>
-    <%= csrf_meta_tag %>
-
     <% head_js_include "jquery.min", "jquery-ui.min" do %>
       $(function() {
     <% unless user_signed_in? %>
@@ -51,7 +48,10 @@
         }, 3000);
         <% end %>
       });
-        <% end %>
+        <% end %>    <%= head_js_include "prettify", "rails" %>
+    <%= csrf_meta_tag %>
+
+
   </head>
   <body onload="prettyPrint()">
     <div id="header">
