@@ -10,7 +10,7 @@ module ApplicationHelper
       text << capture(&proc)
       text << "}\n"
     end
-    text.chomp! ?,
+    text.chomp! "," 
     text << ");</script>"
     return raw(text)
   end
