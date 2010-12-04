@@ -20,7 +20,7 @@ class TagsController < ApplicationController
                                  :joins => :tags,
                                  :conditions => {:tags => {:id => params[:id]}},
                                  :order => "created_at DESC",
-                                 :select => "snippets.*",
+                                 :select => "snippets.*"
                                  )
 
     respond_to do |format|
