@@ -1,3 +1,5 @@
+require 'page'
+
 class TagsController < ApplicationController
   # GET /tags
   # GET /tags.xml
@@ -13,12 +15,13 @@ class TagsController < ApplicationController
   def show
     @tag = Tag.find(params[:id])
     @tags = Tag.all
-    if (params.include? :id)
-      @snippets = Snippet.joins(:tags).where(:tags => {:id => params[:id]})
-    else
-      @snippets = Snippet.all
-    end
-    @snippets = @snippets.order("created_at DESC")
+    page = Util.page_no params
+    @snippets = Snippet.paginate(:page => page,
+                                 :joins => :tags,
+                                 :conditions => {:tags => {:id => params[:id]}},
+                                 :order => "created_at DESC",
+                                 :select => "snippets.*",
+                                 )
 
     respond_to do |format|
       format.html {render :template => "snippets/index"}

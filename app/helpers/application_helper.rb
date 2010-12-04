@@ -14,4 +14,5 @@ module ApplicationHelper
     text << ");</script>"
     return raw(text)
   end
+
 end

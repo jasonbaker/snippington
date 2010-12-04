@@ -3,13 +3,11 @@
   <%= render :object => @snippets, :partial => "snippets/snippets" %>
 
   <div class="sidebar span-3 last">
-    <% cache do %>
     <h2>Tags:</h2>
     <ul>
       <% @tags.each do |tag| %>
       <li><%= render :object => tag, :partial => "tags/taglink" %></li>
       <% end %>
     </ul>
-    <% end %>
   </div>
 </div>

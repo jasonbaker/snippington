@@ -1,13 +1,12 @@
+require 'page'
+
 class SnippetsController < ApplicationController
   # GET /snippets
   # GET /snippets.xml
   def index
-    if (params.include? :tag_id)
-      @snippets = Snippet.joins(:tags).where(:tags => {:id => params[:tag_id]})
-    else
-      @snippets = Snippet.limit(20)
-    end
-    @snippets = @snippets.order("created_at DESC")
+    page = Util.page_no params
+    @snippets = Snippet.paginate(:page => page, :order => "created_at DESC")
+    print @snippets
     @tags = Tag.limit(10)
 
     respond_to do |format|

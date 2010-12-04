@@ -1,7 +1,8 @@
 require 'set'
 
 class Snippet < ActiveRecord::Base
-  @@title_re = /[a-zA-Z0-9\-_].*/
+  cattr_reader :per_page
+  @@per_page = 10
 
   validates :code, :presence => true
 

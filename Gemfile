@@ -12,6 +12,7 @@ gem 'typus', :git => 'https://github.com/fesplugas/typus.git'
 gem 'dalli'
 gem 'memcache-client'
 gem 'gravtastic'
+gem 'will_paginate'
 
 # Use unicorn as the web server
 # gem 'unicorn'
